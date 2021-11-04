@@ -20,9 +20,32 @@ namespace ECommerceRemake.Controllers
         }
 
         // GET: SanPhams
-        public async Task<IActionResult> Index()
+        //public async Task<IActionResult> Index()
+        //{
+        //    return View(await _context.SanPham.ToListAsync());
+        //}
+
+        public async Task<IActionResult> Index(string id, int? page=0)
         {
-            return View(await _context.SanPham.ToListAsync());
+            //int limit = 2;
+            //int start;
+            //if (page > 0)
+            //{
+            //    page = page;
+            //}
+            //else
+            //{
+            //    page = 1;
+            //}
+            //start = (int)(page - 1) * limit;
+
+            var lstSp = from sp in _context.SanPham
+                        select sp;
+            if (!String.IsNullOrEmpty(id))
+            {
+                lstSp = lstSp.Where(s => s.TenSP.Contains(id));
+            }
+            return View(await lstSp.ToListAsync());
         }
 
         // GET: SanPhams/Details/5

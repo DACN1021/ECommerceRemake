@@ -15,8 +15,11 @@ namespace ECommerceRemake.Models
         [Required, DisplayName("Tên Sản Phẩm")]
         public string TenSP { get; set; }
         [Required,DisplayName("Giá")]
+        [DataType(DataType.Currency)]
         public decimal DonGia { get; set; }
         [DisplayName("Ngày Cập Nhật")]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
+        [DataType(DataType.Date)]
         public DateTime NgayCapNhat { get; set; }
         [DisplayName("Cấu Hình")]
         public string CauHinh { get; set; }
@@ -38,5 +41,11 @@ namespace ECommerceRemake.Models
         public int MaLoai { get; set; }
         [DisplayName("Đã Xóa?")]
         public bool DaXoa { get; set; }
+
+        //public virtual ICollection<BinhLuan> BinhLuans { get; set; }
+        //public virtual ICollection<ChiTietDonDatHang> ChiTietDonDatHangs { get; set; }
+        //public virtual ICollection<ChiTietPhieuNhap> ChiTietPhieuNhaps { get; set; }
+        //[Display(Name = "Loại sản phẩm")]
+        //public virtual LoaiSP loaiSP { get; set; }
     }
 }
