@@ -25,20 +25,8 @@ namespace ECommerceRemake.Controllers
         //    return View(await _context.SanPham.ToListAsync());
         //}
 
-        public async Task<IActionResult> Index(string id, int? page=0)
+        public async Task<IActionResult> Index(string id, int? page=null, int? pagesize =10)
         {
-            //int limit = 2;
-            //int start;
-            //if (page > 0)
-            //{
-            //    page = page;
-            //}
-            //else
-            //{
-            //    page = 1;
-            //}
-            //start = (int)(page - 1) * limit;
-
             var lstSp = from sp in _context.SanPham
                         select sp;
             if (!String.IsNullOrEmpty(id))

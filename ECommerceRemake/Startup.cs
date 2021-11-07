@@ -1,5 +1,4 @@
-﻿using Autofac.Core;
-using ECommerceRemake.Data;
+﻿using ECommerceRemake.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -34,7 +33,6 @@ namespace ECommerceRemake
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
-            IServiceCollection serviceCollection = services.AddSingleton<Service>();
             services.AddRazorPages();
         }
 
